@@ -43,7 +43,7 @@ http.createServer((req,res) => {
             unescape(query.get("pdct") + ".json")
             ).toString()
           )
-          if(lics[query.get("key")].length >= 10) {
+          if(lics[query.get("key")].length >= oa.maxusesallowed) {
             res.end("FAIL")
           } else {
             lics[query.get("key")].push({begin:convertToVbDate(new Date())})
